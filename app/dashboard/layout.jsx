@@ -4,11 +4,11 @@ import Navbar from "../ui/dashboard/navbar/Navbar";
 
 const layout = ({ children }) => {
   return (
-    <div>
-      <div>
+    <div className="flex">
+      <div className="flex-1 bg-soft p-5">
         <Sidebar />
       </div>
-      <div>
+      <div className="p-5" style={{ flex: "4" }}>
         <Navbar />
         {children}
       </div>

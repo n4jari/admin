@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #151c2c;
+  color: white;
+}
+.text-soft {
+  color: #b7bac1;
+}
+.bg-soft {
+  background-color: #182237;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.bg-hover-sidebar:hover,
+.bg-active-sidebar {
+  background-color: #2e374a;
+}
