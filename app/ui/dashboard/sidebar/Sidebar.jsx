@@ -8,6 +8,7 @@ import {
   MdWork,
   MdOutlineSettings,
   MdAttachMoney,
+  MdLogout,
 } from "react-icons/md";
 
 import MenuLink from "./menuLink/MenuLink";
@@ -94,12 +95,16 @@ const Sidebar = () => {
       <ul>
         {menuItems.map((cat) => (
           <li key={cat.title}>
-            <span>{cat.title}</span>
+            <span className="text-soft text-sm">{cat.title}</span>
             {cat.list.map((item) => (
               <MenuLink item={item} key={item.title} />
             ))}
           </li>
         ))}
+        <div className="flex items-center gap-2 p-4 ">
+          <MdLogout />
+          <button className="">Logout</button>
+        </div>
       </ul>
     </div>
   );
