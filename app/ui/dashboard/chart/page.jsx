@@ -49,7 +49,7 @@ const data = [
 
 const Chart = () => {
   return (
-    <div className="h-96 bg-soft rounded-md p-4 ">
+    <div className="bg-soft rounded-md p-4 " style={{height:450}}>
       <h2 className="text-soft fo nt-light mb-4">Weekly Recap</h2>
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
@@ -60,13 +60,15 @@ const Chart = () => {
             top: 5,
             right: 30,
             left: 20,
-            bottom: 5,
+            bottom: 40,
           }}
         >
+            <Legend verticalAlign="top"  />
+
+
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip contentStyle={{ backgroundColor: "#222", border: "none" }} />
-          <Legend />
           <Line
             type="monotone"
             dataKey="visit"
