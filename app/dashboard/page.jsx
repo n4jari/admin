@@ -7,14 +7,14 @@ import RightBar from "../ui/dashboard/rightbar/page";
 const Dashboard = () => {
   return (
     <div className="flex gap-4">
-      <div className="flex gap-20 flex-col" style={{ flex: 3 }}>
+      <div className="flex gap-4 flex-col" style={{ flex: 3 }}>
         <div className="flex justify-between gap-4">
           <Card />
           <Card />
           <Card />
         </div>
-        <Chart />
         <Transactions />
+        <Chart />
       </div>
       <div className="flex-1">
         <RightBar />
