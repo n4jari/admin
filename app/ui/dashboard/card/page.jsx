@@ -8,7 +8,7 @@ const Card = () => {
       <div className="flex flex-col gap-4">
         <span>Total Users</span>
         <span className="text-lg  font-bold">10.273</span>
-        <span>
+        <span className="text-sm">
           <span className="text-green-500">12%</span> more than previous week
         </span>
       </div>
