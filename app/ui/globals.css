@@ -15,6 +15,9 @@ body {
 .text-soft {
   color: #b7bac1;
 }
+.bg {
+  background: #151c2c;
+}
 .bg-soft {
   background-color: #182237;
 }

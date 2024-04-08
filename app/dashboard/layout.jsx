@@ -6,7 +6,7 @@ import Footer from "../ui/dashboard/footer/Footer";
 const layout = ({ children }) => {
   return (
     <div className="flex">
-      <div className="flex-1 bg-soft p-5">
+      <div className="flex-1 bg-soft p-5 min-h-screen">
         <Sidebar />
       </div>
       <div className="p-5" style={{ flex: "4" }}>
