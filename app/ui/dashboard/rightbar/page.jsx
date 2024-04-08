@@ -29,7 +29,7 @@ const RightBar = () => {
             tempora possimus. Odit atque saepe, quis sapiente accusantium
             numquam ipsa?
           </p>
-          <button className="flex items-center gap-1 p-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 rounded-md border-none w-fit cursor-pointer">
+          <button className="flex items-center gap-1 py-1 px-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 rounded-md border-none w-fit cursor-pointer">
             <MdPlayCircleFilled />
             Watch
           </button>
@@ -51,7 +51,7 @@ const RightBar = () => {
             tempora possimus. Odit atque saepe, quis sapiente accusantium
             numquam ipsa?
           </p>
-          <button className="flex items-center gap-1 p-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 rounded-md border-none w-fit cursor-pointer">
+          <button className="flex items-center gap-1 py-1 px-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 rounded-md border-none w-fit cursor-pointer">
             <MdReadMore />
             Learn
           </button>

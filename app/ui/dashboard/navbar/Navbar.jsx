@@ -14,7 +14,7 @@ const Navbar = () => {
     <div className="flex justify-between bg-soft rounded-md px-5 py-3 items-center mb-2">
       <div className="uppercase">{pathname.split("/").pop()}</div>
       <div className="flex items-center gap-4">
-        <div className="flex  items-center gap-1 rounded-md px-2 py-1 bg-active-sidebar">
+        <div className="flex items-center gap-1 rounded-md px-2 py-1 bg-active-sidebar">
           <MdSearch />
           <input
             className="bg-transparent text-xs p-1 outline-none border-none"

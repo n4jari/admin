@@ -16,7 +16,7 @@ const Transactions = () => {
         <tbody>
           <tr>
             <td className="p-2">
-              <div className="flex items-center gap-4 text-">
+              <div className="flex items-center gap-4">
                 <Image
                   className="rounded-full object-cover"
                   src="/noavatar.png"
