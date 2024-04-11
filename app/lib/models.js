@@ -78,6 +78,6 @@ const productSchema = new mongoose.Schema(
   }
 );
 
-export const user = mongoose.model.User || mongoose.model("User", userSchema);
-export const product =
+export const User = mongoose.model.User || mongoose.model("User", userSchema);
+export const Product =
   mongoose.model.Product || mongoose.model("Product", productSchema);
