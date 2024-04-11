@@ -45,7 +45,7 @@ const Products = () => {
             <td>72</td>
             <td>
               <div className="flex gap-2 py-1 px-2">
-                <Link href="/">
+                <Link href="/dashboard/products/fakeProduct">
                   <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
                     View
                   </button>
