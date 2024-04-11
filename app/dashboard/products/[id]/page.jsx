@@ -13,28 +13,28 @@ const SingleProduct = () => {
         <form className="flex flex-col gap-2">
           <label>Title</label>
           <input
-            className="bg text-soft p-2 border border-slate-700 rounded-md "
+            className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="title"
             placeholder="Iphone"
           />
           <label>Price</label>
           <input
-            className="bg text-soft p-2 border border-slate-700 rounded-md "
+            className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="price"
             placeholder="$99"
           />
           <label>stock</label>
           <input
-            className="bg text-soft p-2 border border-slate-700 rounded-md "
+            className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="stock"
             placeholder="23"
           />
           <label>Color</label>
           <input
-            className="bg text-soft p-2 border border-slate-700 rounded-md "
+            className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="color"
             placeholder="Red"
@@ -48,7 +48,7 @@ const SingleProduct = () => {
           />
           <label>Cat</label>
           <select
-            className="bg text-soft p-2 border border-slate-700 rounded-md "
+            className="bg text-soft p-2 border border-slate-700 rounded-md"
             name="cat"
             id="cat"
           >
