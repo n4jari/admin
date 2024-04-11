@@ -1,9 +1,13 @@
+import { fetchUsers } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
 
-const Users = () => {
+const Users = async () => {
+  const users = await fetchUsers();
+  console.log(users);
+
   return (
     <div className="p-4 bg-soft rounded-md">
       <div className="flex items-center justify-between mb-4">
