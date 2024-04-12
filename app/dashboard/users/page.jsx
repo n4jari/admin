@@ -4,8 +4,9 @@ import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
 
-const Users = async () => {
-  const users = await fetchUsers();
+const Users = async ({ searchParams }) => {
+  const q = searchParams.q || "";
+  const users = await fetchUsers(q);
 
   return (
     <div className="p-4 bg-soft rounded-md">
