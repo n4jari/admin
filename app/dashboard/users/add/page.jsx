@@ -1,7 +1,9 @@
+import { addUser } from "@/app/lib/actions";
+
 const AddUser = () => {
   return (
     <div className="bg-soft p-4 rounded-md">
-      <form className="flex flex-wrap justify-between">
+      <form action={addUser} className="flex flex-wrap justify-between">
         <input
           required
           type="text"
