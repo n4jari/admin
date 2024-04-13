@@ -1,10 +1,15 @@
+import { fetchProducts } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
 import { Suspense } from "react";
 
-const Products = () => {
+const Products = async ({ searchParams }) => {
+  const q = searchParams.q || "";
+  const page = searchParams.page || 1;
+  const { products, count } = await fetchProducts(q, page);
+
   return (
     <div className="p-4 bg-soft rounded-md">
       <div className="flex items-center justify-between mb-4">
@@ -29,39 +34,41 @@ const Products = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="p-2">
-              <div className="flex items-center gap-4">
-                <Image
-                  className="rounded-full object-cover"
-                  src="/noproduct.jpg"
-                  width={40}
-                  height={40}
-                  alt=""
-                />
-                Amireza Najari
-              </div>
-            </td>
-            <td>Desc</td>
-            <td>$999</td>
-            <td>13.04.2022</td>
-            <td>72</td>
-            <td>
-              <div className="flex gap-2 py-1 px-2">
-                <Link href="/dashboard/products/fakeProduct">
-                  <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
-                    View
+          {products.map((product) => (
+            <tr key={product.id}>
+              <td className="p-2">
+                <div className="flex items-center gap-4">
+                  <Image
+                    className="rounded-full object-cover"
+                    src={product.img || "/noproduct.jpg"}
+                    width={40}
+                    height={40}
+                    alt={product.title}
+                  />
+                  {product.title}
+                </div>
+              </td>
+              <td>{product.desc}</td>
+              <td>{product.price}</td>
+              <td>{product.createdAt?.toString().splice(4, 16)}</td>
+              <td>{product.stock}</td>
+              <td>
+                <div className="flex gap-2 py-1 px-2">
+                  <Link href={`/dashboard/products/${product.id}`}>
+                    <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
+                      View
+                    </button>
+                  </Link>
+                  <button className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer">
+                    Delete
                   </button>
-                </Link>
-                <button className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer">
-                  Delete
-                </button>
-              </div>
-            </td>
-          </tr>
+                </div>
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
-      <Pagination />
+      <Pagination count={count} />
     </div>
   );
 };
