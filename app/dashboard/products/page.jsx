@@ -2,12 +2,15 @@ import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
+import { Suspense } from "react/cjs/react.production.min";
 
 const Products = () => {
   return (
     <div className="p-4 bg-soft rounded-md">
       <div className="flex items-center justify-between mb-4">
-        <Search placeholder="Search for a product ..." />
+        <Suspense>
+          <Search placeholder="Search for a product ..." />
+        </Suspense>
         <Link href="/dashboard/products/add">
           <button className="py-1 px-2 text-sm font-medium bg-indigo-500 hover:bg-indigo-600 rounded-md border-none w-fit cursor-pointer">
             Add New
@@ -39,7 +42,7 @@ const Products = () => {
                 Amireza Najari
               </div>
             </td>
-            <td >Desc</td>
+            <td>Desc</td>
             <td>$999</td>
             <td>13.04.2022</td>
             <td>72</td>
