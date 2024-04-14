@@ -36,7 +36,7 @@ const Products = async ({ searchParams }) => {
         <tbody>
           {products.map((product) => (
             <tr key={product.id}>
-              <td className="p-2">
+              <td className="py-2">
                 <div className="flex items-center gap-4">
                   <Image
                     className="rounded-full object-cover"
@@ -48,11 +48,11 @@ const Products = async ({ searchParams }) => {
                   {product.title}
                 </div>
               </td>
-              <td>{product.desc}</td>
-              <td>{product.price}</td>
-              <td>{product.createdAt?.toString().slice(4, 16)}</td>
-              <td>{product.stock}</td>
-              <td>
+              <td className="py-2">{product.desc}</td>
+              <td className="py-2">{product.price}</td>
+              <td className="py-2">{product.createdAt?.toString().slice(4, 16)}</td>
+              <td className="py-2">{product.stock}</td>
+              <td className="py-2">
                 <div className="flex gap-2 py-1 px-2">
                   <Link href={`/dashboard/products/${product.id}`}>
                     <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">

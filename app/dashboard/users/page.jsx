@@ -36,7 +36,7 @@ const Users = async ({ searchParams }) => {
         <tbody>
           {users.map((user) => (
             <tr key={user.id}>
-              <td className="p-2">
+              <td className="py-2">
                 <div className="flex items-center gap-4">
                   <Image
                     className="rounded-full object-cover"
@@ -48,11 +48,11 @@ const Users = async ({ searchParams }) => {
                   {user.username}
                 </div>
               </td>
-              <td>{user.email}</td>
-              <td>{user.createdAt?.toString().slice(4, 16)}</td>
-              <td>{user.isAdmin ? "Admin" : "Client"}</td>
-              <td>{user.isActive ? "Active" : "Passive"}</td>
-              <td>
+              <td className="py-2">{user.email}</td>
+              <td className="py-2">{user.createdAt?.toString().slice(4, 16)}</td>
+              <td className="py-2">{user.isAdmin ? "Admin" : "Client"}</td>
+              <td className="py-2">{user.isActive ? "Active" : "Passive"}</td>
+              <td className="py-2">
                 <div className="flex gap-2 py-1 px-2">
                   <Link href={`/dashboard/users/${user.id}`}>
                     <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
