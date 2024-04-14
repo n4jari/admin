@@ -1,18 +1,25 @@
+import { fetchProduct } from "@/app/lib/data";
 import Image from "next/image";
 
-const SingleProduct = () => {
+const SingleProduct = async ({ params }) => {
+  const product = await fetchProduct(params.id);
   return (
     <div className="flex gap-4">
       <div className="flex-1 h-max bg-soft rounded-md p-4">
         <div className="mb-2 w-full h-64 rounded-md relative overflow-hidden">
-          <Image className="" src="/noproduct.jpg" fill alt="iphone picture" />
+          <Image
+            src={product.img || "/noproduct.jpg"}
+            fill
+            alt={product.title}
+          />
         </div>
-        Iphone
+        {product.title}
       </div>
       <div style={{ flex: 3 }} className="bg-soft p-4 rounded-md">
         <form className="flex flex-col gap-2">
           <label>Title</label>
           <input
+            value={product.title}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="title"
@@ -20,6 +27,7 @@ const SingleProduct = () => {
           />
           <label>Price</label>
           <input
+            value={product.price}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="price"
@@ -27,6 +35,7 @@ const SingleProduct = () => {
           />
           <label>stock</label>
           <input
+            value={product.stock}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="stock"
@@ -34,6 +43,7 @@ const SingleProduct = () => {
           />
           <label>Color</label>
           <input
+            value={product.color}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="color"
@@ -41,6 +51,7 @@ const SingleProduct = () => {
           />
           <label>Size</label>
           <input
+            value={product.size}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="size"
@@ -48,6 +59,7 @@ const SingleProduct = () => {
           />
           <label>Cat</label>
           <select
+            defaultValue={product.cat}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             name="cat"
             id="cat"
@@ -57,6 +69,7 @@ const SingleProduct = () => {
           </select>
           <label>Description</label>
           <textarea
+            value={product.desc}
             name="des"
             id="des"
             cols="30"

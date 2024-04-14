@@ -1,18 +1,21 @@
+import { fetchUser } from "@/app/lib/data";
 import Image from "next/image";
 
-const SingleUser = () => {
+const SingleUser = async ({ params }) => {
+  const user = await fetchUser(params.id);
   return (
     <div className="flex gap-12">
       <div className="flex-1 bg-soft p-4 rounded-md font-bold text-soft h-max">
         <div className="w-full h-80 overflow-hidden relative rounded-md mb-4">
-          <Image src={"/noavatar.png"} alt="" fill />
+          <Image src={user.img || "/noavatar.png"} alt="profile" fill />
         </div>
-        Amireza Najari
+        {user.username}
       </div>
       <div className="bg-soft p-4 rounded-md" style={{ flex: 3 }}>
         <form className="flex flex-col gap-3">
           <label className="trext-sm">Username</label>
           <input
+            value={user.username}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="text"
             name="username"
@@ -20,6 +23,7 @@ const SingleUser = () => {
           />
           <label className="trext-sm">Email</label>
           <input
+            value={user.email}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="email"
             name="email"
@@ -27,6 +31,7 @@ const SingleUser = () => {
           />
           <label className="trext-sm">password</label>
           <input
+            value={user.password}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="password"
             name="password"
@@ -34,6 +39,7 @@ const SingleUser = () => {
           />
           <label className="trext-sm">Phone</label>
           <input
+            value={user.phone}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="phone"
             name="phone"
@@ -41,6 +47,7 @@ const SingleUser = () => {
           />
           <label className="trext-sm">Address</label>
           <input
+            value={user.address}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="text"
             name="address"
@@ -48,6 +55,7 @@ const SingleUser = () => {
           />
           <label className="trext-sm">Is Admin?</label>
           <select
+            defaultValue={user.isAdmin}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             name="isAdmin"
             id="isAdmin"
@@ -57,6 +65,7 @@ const SingleUser = () => {
           </select>
           <label className="trext-sm">Is Active?</label>
           <select
+            defaultValue={user.isActive}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             name="isActive"
             id="isActive"
