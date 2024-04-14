@@ -1,3 +1,4 @@
+import { updateProduct } from "@/app/lib/actions";
 import { fetchProduct } from "@/app/lib/data";
 import Image from "next/image";
 
@@ -16,46 +17,42 @@ const SingleProduct = async ({ params }) => {
         {product.title}
       </div>
       <div style={{ flex: 3 }} className="bg-soft p-4 rounded-md">
-        <form className="flex flex-col gap-2">
+        <form action={updateProduct} className="flex flex-col gap-2">
+          <input type="hidden" name="id" value={product.id} />
           <label>Title</label>
           <input
-            value={product.title}
+            placeholder={product.title}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="title"
-            placeholder="Iphone"
           />
           <label>Price</label>
           <input
-            value={product.price}
+            placeholder={product.price}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="price"
-            placeholder="$99"
           />
           <label>stock</label>
           <input
-            value={product.stock}
+            placeholder={product.stock}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="number"
             name="stock"
-            placeholder="23"
           />
           <label>Color</label>
           <input
-            value={product.color}
+            placeholder={product.color}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="color"
-            placeholder="Red"
           />
           <label>Size</label>
           <input
-            value={product.size}
+            placeholder={product.size}
             className="bg text-soft p-2 border border-slate-700 rounded-md"
             type="text"
             name="size"
-            placeholder="Large"
           />
           <label>Cat</label>
           <select
@@ -69,12 +66,11 @@ const SingleProduct = async ({ params }) => {
           </select>
           <label>Description</label>
           <textarea
-            value={product.desc}
+            placeholder={product.desc}
             name="des"
             id="des"
             cols="30"
             rows="10"
-            placeholder="Description"
             className="bg text-soft p-2 border border-slate-700 rounded-md"
           ></textarea>
           <button

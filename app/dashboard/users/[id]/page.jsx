@@ -1,3 +1,4 @@
+import { updateUser } from "@/app/lib/actions";
 import { fetchUser } from "@/app/lib/data";
 import Image from "next/image";
 
@@ -12,46 +13,42 @@ const SingleUser = async ({ params }) => {
         {user.username}
       </div>
       <div className="bg-soft p-4 rounded-md" style={{ flex: 3 }}>
-        <form className="flex flex-col gap-3">
+        <form action={updateUser} className="flex flex-col gap-3">
+          <input type="hidden" name="id" value={user.id} />
           <label className="trext-sm">Username</label>
           <input
-            value={user.username}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="text"
             name="username"
-            placeholder="Amireza Najari"
+            placeholder={user.username}
           />
           <label className="trext-sm">Email</label>
           <input
-            value={user.email}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="email"
             name="email"
-            placeholder="n4jari@gmail.com"
+            placeholder={user.email}
           />
           <label className="trext-sm">password</label>
           <input
-            value={user.password}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="password"
             name="password"
-            placeholder="&H@FG!@"
+            placeholder={user.password}
           />
           <label className="trext-sm">Phone</label>
           <input
-            value={user.phone}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="phone"
             name="phone"
-            placeholder="+123456789"
+            placeholder={user.phone}
           />
           <label className="trext-sm">Address</label>
           <input
-            value={user.address}
             className="bg text-soft border border-slate-700  p-2 rounded-md"
             type="text"
             name="address"
-            placeholder="Iran , Tehran"
+            placeholder={user.address}
           />
           <label className="trext-sm">Is Admin?</label>
           <select
@@ -60,9 +57,14 @@ const SingleUser = async ({ params }) => {
             name="isAdmin"
             id="isAdmin"
           >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
+            <option value={true} selected={user.isAdmin}>
+              Yes
+            </option>
+            <option value={false} selected={!user.isAdmin}>
+              No
+            </option>
           </select>
+
           <label className="trext-sm">Is Active?</label>
           <select
             defaultValue={user.isActive}
@@ -70,8 +72,12 @@ const SingleUser = async ({ params }) => {
             name="isActive"
             id="isActive"
           >
-            <option value={true}>Yes</option>
-            <option value={false}>No</option>
+            <option value={true} selected={user.isActive}>
+              Yes
+            </option>
+            <option value={false} selected={!user.isActive}>
+              No
+            </option>
           </select>
 
           <button
