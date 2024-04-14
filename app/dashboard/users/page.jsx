@@ -4,6 +4,7 @@ import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
+import { deleteUser } from "@/app/lib/actions";
 
 const Users = async ({ searchParams }) => {
   const q = searchParams.q || "";
@@ -49,7 +50,9 @@ const Users = async ({ searchParams }) => {
                 </div>
               </td>
               <td className="py-2">{user.email}</td>
-              <td className="py-2">{user.createdAt?.toString().slice(4, 16)}</td>
+              <td className="py-2">
+                {user.createdAt?.toString().slice(4, 16)}
+              </td>
               <td className="py-2">{user.isAdmin ? "Admin" : "Client"}</td>
               <td className="py-2">{user.isActive ? "Active" : "Passive"}</td>
               <td className="py-2">
@@ -59,9 +62,15 @@ const Users = async ({ searchParams }) => {
                       View
                     </button>
                   </Link>
-                  <button className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer">
-                    Delete
-                  </button>
+                  <form action={deleteUser}>
+                    <input type="hidden" name="id" />
+                    <button
+                      type="submit"
+                      className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer"
+                    >
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>

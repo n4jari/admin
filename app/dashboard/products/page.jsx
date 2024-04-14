@@ -1,3 +1,4 @@
+import { deleteProduct } from "@/app/lib/actions";
 import { fetchProducts } from "@/app/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
@@ -50,7 +51,9 @@ const Products = async ({ searchParams }) => {
               </td>
               <td className="py-2">{product.desc}</td>
               <td className="py-2">{product.price}</td>
-              <td className="py-2">{product.createdAt?.toString().slice(4, 16)}</td>
+              <td className="py-2">
+                {product.createdAt?.toString().slice(4, 16)}
+              </td>
               <td className="py-2">{product.stock}</td>
               <td className="py-2">
                 <div className="flex gap-2 py-1 px-2">
@@ -59,9 +62,12 @@ const Products = async ({ searchParams }) => {
                       View
                     </button>
                   </Link>
-                  <button className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer">
-                    Delete
-                  </button>
+                  <form action={deleteProduct}>
+                    <input type="hidden" name="id" />
+                    <button className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer">
+                      Delete
+                    </button>
+                  </form>
                 </div>
               </td>
             </tr>
