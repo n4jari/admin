@@ -1,9 +1,10 @@
+import { addProduct } from "@/app/lib/actions";
 import React from "react";
 
 const AddProduct = () => {
   return (
     <div className="bg-soft p-4 rounded-md">
-      <form className="flex flex-wrap justify-between">
+      <form action={addProduct} className="flex flex-wrap justify-between">
         <input
           required
           name="title"
@@ -46,8 +47,8 @@ const AddProduct = () => {
         />
         <textarea
           className="p-4 mb-6 rounded-md bg border text-soft border-slate-700 w-full"
-          name="des"
-          id="des"
+          name="desc"
+          id="desc"
           placeholder="Description"
           rows="16"
         ></textarea>
