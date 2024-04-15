@@ -1,6 +1,6 @@
 import Card from "../ui/dashboard/card/page";
 import Chart from "../ui/dashboard/chart/page";
-import Transactions from "../ui/dashboard/transactions/page";
+import LatesTransactions from "../ui/dashboard/transactions/LatestTransactions";
 import RightBar from "../ui/dashboard/rightbar/page";
 import Notices from "../ui/dashboard/notices/Notices";
 
@@ -16,7 +16,7 @@ const Dashboard = () => {
           <Card />
           <Card />
         </div>
-        <Transactions />
+        <LatesTransactions />
         <Chart />
       </div>
       <div className="flex-1 max-lg:hidden">
