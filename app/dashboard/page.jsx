@@ -11,7 +11,7 @@ const Dashboard = () => {
         <div className="hidden max-lg:block">
           <Notices position="static" />
         </div>
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-between gap-4 max-sm:flex-col">
           <Card />
           <Card />
           <Card />
