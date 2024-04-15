@@ -12,7 +12,7 @@ const Users = async ({ searchParams }) => {
   const { count, users } = await fetchUsers(q, page);
 
   return (
-    <div className="p-4 bg-soft rounded-md">
+    <div className="p-4 bg-soft rounded-md max-sm:text-sm">
       <div className="flex items-center justify-between mb-4">
         <Suspense>
           <Search placeholder="Search for a user ..." />
@@ -23,60 +23,63 @@ const Users = async ({ searchParams }) => {
           </button>
         </Link>
       </div>
-      <table className="w-full text-left">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Created at</th>
-            <th>Role</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td className="py-2">
-                <div className="flex items-center gap-4">
-                  <Image
-                    className="rounded-full object-cover"
-                    src={user.img || "/noavatar.png"}
-                    width={40}
-                    height={40}
-                    alt="profile"
-                  />
-                  {user.username}
-                </div>
-              </td>
-              <td className="py-2">{user.email}</td>
-              <td className="py-2">
-                {user.createdAt?.toString().slice(4, 16)}
-              </td>
-              <td className="py-2">{user.isAdmin ? "Admin" : "Client"}</td>
-              <td className="py-2">{user.isActive ? "Active" : "Passive"}</td>
-              <td className="py-2">
-                <div className="flex gap-2 py-1 px-2">
-                  <Link href={`/dashboard/users/${user.id}`}>
-                    <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
-                      View
-                    </button>
-                  </Link>
-                  <form action={deleteUser}>
-                    <input type="hidden" name="id" />
-                    <button
-                      type="submit"
-                      className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer"
-                    >
-                      Delete
-                    </button>
-                  </form>
-                </div>
-              </td>
+      <div className="overflow-x-auto">
+        <table className="text-left w-full ">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Created at</th>
+              <th>Role</th>
+              <th>Status</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user.id}>
+                <td className="min-w-40 pr-4 py-2">
+                  <div className="flex items-center gap-4">
+                    <Image
+                      className="rounded-full object-cover"
+                      src={user.img || "/noavatar.png"}
+                      width={40}
+                      height={40}
+                      alt="profile"
+                    />
+                    {user.username}
+                  </div>
+                </td>
+                <td className="min-w-40 pr-4 py-2">{user.email}</td>
+                <td className="min-w-40 pr-4 py-2">
+                  {user.createdAt?.toString().slice(4, 16)}
+                </td>
+                <td className="min-w-40 pr-4 py-2">{user.isAdmin ? "Admin" : "Client"}</td>
+                <td className="min-w-40 pr-4 py-2">{user.isActive ? "Active" : "Passive"}</td>
+                <td className="min-w-40 pr-4 py-2">
+                  <div className="flex gap-2 py-1">
+                    <Link href={`/dashboard/users/${user.id}`}>
+                      <button className="py-1 px-2 text-sm font-medium bg-blue-500 hover:bg-blue-600 rounded-md border-none w-fit cursor-pointer">
+                        View
+                      </button>
+                    </Link>
+                    <form action={deleteUser}>
+                      <input type="hidden" name="id" />
+                      <button
+                        type="submit"
+                        className="py-1 px-2 text-sm font-medium bg-red-500 hover:bg-red-600 rounded-md border-none w-fit cursor-pointer"
+                      >
+                        Delete
+                      </button>
+                    </form>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
       <Pagination count={count} />
     </div>
   );
