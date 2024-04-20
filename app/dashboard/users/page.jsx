@@ -54,8 +54,12 @@ const Users = async ({ searchParams }) => {
                 <td className="min-w-40 pr-4 py-2">
                   {user.createdAt?.toString().slice(4, 16)}
                 </td>
-                <td className="min-w-40 pr-4 py-2">{user.isAdmin ? "Admin" : "Client"}</td>
-                <td className="min-w-40 pr-4 py-2">{user.isActive ? "Active" : "Passive"}</td>
+                <td className="min-w-40 pr-4 py-2">
+                  {user.isAdmin ? "Admin" : "Client"}
+                </td>
+                <td className="min-w-40 pr-4 py-2">
+                  {user.isActive ? "Active" : "Passive"}
+                </td>
                 <td className="min-w-40 pr-4 py-2">
                   <div className="flex gap-2 py-1">
                     <Link href={`/dashboard/users/${user.id}`}>

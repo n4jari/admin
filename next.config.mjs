@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "encrypted-tbn0.gstatic.com",
+        hostname: "imgv3.fotor.com",
         protocol: "https",
       },
     ],
