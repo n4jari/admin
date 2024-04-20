@@ -7,7 +7,7 @@ import Notices from "../ui/dashboard/notices/Notices";
 const Dashboard = () => {
   return (
     <div className="flex gap-4">
-      <div className="flex gap-4 flex-col" style={{ flex: 3 }}>
+      <div className="flex gap-4 flex-col w-3/4 max-lg:w-full">
         <div className="hidden max-lg:block">
           <Notices position="static" />
         </div>
@@ -19,7 +19,7 @@ const Dashboard = () => {
         <LatesTransactions />
         <Chart />
       </div>
-      <div className="flex-1 max-lg:hidden">
+      <div className="max-lg:hidden w-1/4">
         <RightBar />
       </div>
     </div>

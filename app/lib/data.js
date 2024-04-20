@@ -54,6 +54,6 @@ export const fetchProduct = async (id) => {
     return product;
   } catch (err) {
     console.error(err);
-    throw new Error("Failed to fetch user!");
+    throw new Error("Failed to fetch product!");
   }
 };

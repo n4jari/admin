@@ -24,7 +24,7 @@ const Users = async ({ searchParams }) => {
         </Link>
       </div>
       <div className="overflow-x-auto">
-        <table className="text-left w-full ">
+        <table className="text-left w-full">
           <thead>
             <tr>
               <th>Name</th>
