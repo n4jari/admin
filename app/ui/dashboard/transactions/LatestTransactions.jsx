@@ -16,7 +16,7 @@ const LatestTransactions = () => {
           </thead>
           <tbody>
             <tr>
-              <td className="min-w-40 pr-4 py-2">
+              <td className="min-w-52 pr-4 py-2">
                 <div className="flex items-center gap-4">
                   <Image
                     className="rounded-full object-cover"

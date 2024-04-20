@@ -5,15 +5,15 @@ import Image from "next/image";
 const SingleUser = async ({ params }) => {
   const user = await fetchUser(params.id);
   return (
-    <div className="flex gap-12">
+    <div className="flex gap-4 max-md:flex-col">
       <div className="flex-1 bg-soft p-4 rounded-md font-bold text-soft h-max">
-        <div className="w-full h-80 overflow-hidden relative rounded-md mb-4">
+        <div className="w-full h-80 max-lg:h-40 max-md:h-80  overflow-hidden relative rounded-md mb-4 max-lg:text-sm">
           <Image src={user.img || "/noavatar.png"} alt="profile" fill />
         </div>
         {user.username}
       </div>
       <div className="bg-soft p-4 rounded-md" style={{ flex: 3 }}>
-        <form action={updateUser} className="flex flex-col gap-3">
+        <form action={updateUser} className="flex flex-col gap-2">
           <input type="hidden" name="id" value={user.id} />
           <label className="trext-sm">Username</label>
           <input

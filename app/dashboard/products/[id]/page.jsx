@@ -5,9 +5,9 @@ import Image from "next/image";
 const SingleProduct = async ({ params }) => {
   const product = await fetchProduct(params.id);
   return (
-    <div className="flex gap-4">
-      <div className="flex-1 h-max bg-soft rounded-md p-4">
-        <div className="mb-2 w-full h-64 rounded-md relative overflow-hidden">
+    <div className="flex gap-4 max-md:flex-col">
+      <div className="flex-1 bg-soft p-4 rounded-md font-bold text-soft h-max">
+        <div className="w-full h-80 max-lg:h-40 max-md:h-80  overflow-hidden relative rounded-md mb-4 max-lg:text-sm">
           <Image
             src={product.img || "/noproduct.jpg"}
             fill
