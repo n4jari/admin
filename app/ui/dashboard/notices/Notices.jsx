@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { MdPlayCircleFilled, MdReadMore } from "react-icons/md";
 
+
 const Notices = ({ position }) => {
   return (
     <div className={position + " flex flex-col gap-4"}>

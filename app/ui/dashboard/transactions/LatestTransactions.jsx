@@ -2,7 +2,7 @@ import { fetchTransactions } from "@/app/lib/data";
 import Image from "next/image";
 
 const LatestTransactions = async () => {
-  const { transactions } = await fetchTransactions();
+  const { transactions } = await fetchTransactions("", 1);
   return (
     <div className="bg-soft rounded-md p-5 max-sm:text-sm">
       <h2 className="text-soft font-light mb-4">Latest Transactions</h2>
