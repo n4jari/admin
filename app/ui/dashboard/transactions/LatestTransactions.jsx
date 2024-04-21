@@ -1,4 +1,4 @@
-import { fetchTransactions } from "@/app/lib/data";
+import { fetchTransactions } from "@/lib/data";
 import Image from "next/image";
 
 const LatestTransactions = async () => {

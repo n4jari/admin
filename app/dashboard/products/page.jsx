@@ -1,5 +1,5 @@
-import { deleteProduct } from "@/app/lib/actions";
-import { fetchProducts } from "@/app/lib/data";
+import { deleteProduct } from "@/lib/actions";
+import { fetchProducts } from "@/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";

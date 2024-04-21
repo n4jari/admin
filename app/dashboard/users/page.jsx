@@ -1,10 +1,10 @@
 import { Suspense } from "react";
-import { fetchUsers } from "@/app/lib/data";
+import { fetchUsers } from "@/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
-import { deleteUser } from "@/app/lib/actions";
+import { deleteUser } from "@/lib/actions";
 
 const Users = async ({ searchParams }) => {
   const q = searchParams.q || "";

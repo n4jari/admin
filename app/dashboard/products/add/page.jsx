@@ -1,4 +1,4 @@
-import { addProduct } from "@/app/lib/actions";
+import { addProduct } from "@/lib/actions";
 import React from "react";
 
 const AddProduct = () => {

@@ -15,12 +15,13 @@ const layout = ({ children }) => {
           <Sidebar />
         </div>
       ) : (
-        <div className="hidden w-2/3 bg-soft p-5 min-h-screen  max-md:block fixed z-10">
-          <p className="absolute right-5">
-            <button onClick={() => setOpenMenu((prev) => !prev)}>
-              <MdClose />
-            </button>
-          </p>
+        <div className="hidden w-2/3 bg-soft p-5 h-screen overflow-y-auto max-md:block fixed z-10">
+          <button
+            onClick={() => setOpenMenu((prev) => !prev)}
+            className="absolute right-5 top-5 z-20"
+          >
+            <MdClose />
+          </button>
           <Sidebar />
         </div>
       )}

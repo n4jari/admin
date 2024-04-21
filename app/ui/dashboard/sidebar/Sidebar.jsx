@@ -1,81 +1,8 @@
-import {
-  MdDashboard,
-  MdSupervisedUserCircle,
-  MdShoppingBag,
-  MdHelpCenter,
-  MdPeople,
-  MdAnalytics,
-  MdWork,
-  MdOutlineSettings,
-  MdAttachMoney,
-  MdLogout,
-} from "react-icons/md";
-
+import { MdLogout } from "react-icons/md";
+import { menuItems } from "@/data/data";
 import MenuLink from "./menuLink/MenuLink";
 import Image from "next/image";
 
-const menuItems = [
-  {
-    title: "Pages",
-    list: [
-      {
-        title: "Dashboard",
-        path: "/dashboard",
-        icon: <MdDashboard />,
-      },
-      {
-        title: "Users",
-        path: "/dashboard/users",
-        icon: <MdSupervisedUserCircle />,
-      },
-      {
-        title: "Products",
-        path: "/dashboard/products",
-        icon: <MdShoppingBag />,
-      },
-      {
-        title: "Transactions",
-        path: "/dashboard/transactions",
-        icon: <MdAttachMoney />,
-      },
-    ],
-  },
-  {
-    title: "Analytics",
-    list: [
-      {
-        title: "Revenue",
-        path: "/dashboard/#",
-        icon: <MdWork />,
-      },
-      {
-        title: "Reports",
-        path: "/dashboard/#",
-        icon: <MdAnalytics />,
-      },
-      {
-        title: "Teams",
-        path: "/dashboard/#",
-        icon: <MdPeople />,
-      },
-    ],
-  },
-  {
-    title: "User",
-    list: [
-      {
-        title: "Settings",
-        path: "/dashboard/#",
-        icon: <MdOutlineSettings />,
-      },
-      {
-        title: "Help",
-        path: "/dashboard/#",
-        icon: <MdHelpCenter />,
-      },
-    ],
-  },
-];
 const Sidebar = () => {
   return (
     <div className="sticky top-10">
@@ -92,7 +19,7 @@ const Sidebar = () => {
           <span className="text-xs text-soft">Adminastaror</span>
         </div>
       </div>
-      <ul>
+      <ul className="overflow-y-auto">
         {menuItems.map((cat) => (
           <li key={cat.title}>
             <span className="text-soft text-sm">{cat.title}</span>
@@ -103,7 +30,7 @@ const Sidebar = () => {
         ))}
         <div className="flex items-center gap-2 p-4 ">
           <MdLogout />
-          <button className="">Logout</button>
+          <button>Logout</button>
         </div>
       </ul>
     </div>

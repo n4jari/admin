@@ -1,4 +1,4 @@
-import { fetchTransactions } from "@/app/lib/data";
+import { fetchTransactions } from "@/lib/data";
 import Pagination from "@/app/ui/dashboard/pagination/Pagination";
 import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
