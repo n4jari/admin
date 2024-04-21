@@ -23,20 +23,26 @@ const Pagination = ({ count }) => {
 
   return (
     <div className="flex justify-between p-2 text-sm">
-      <button
-        onClick={() => handleChangePage("prev")}
-        className="py-1 px-2 rounded-md bg-white hover:bg-gray-200 text-black disabled:cursor-not-allowed"
-        disabled={!hasPrev}
-      >
-        Previous
-      </button>
-      <button
-        onClick={() => handleChangePage("next")}
-        className="py-1 px-2 rounded-md bg-white text-black hover:bg-gray-200 disabled:cursor-not-allowed"
-        disabled={!hasNext}
-      >
-        Next
-      </button>
+      <p>
+        Page : {page}/{Math.ceil(count / 4)}
+      </p>
+      <div className="flex gap-2">
+        <button
+          onClick={() => handleChangePage("prev")}
+          className="py-1 px-2 rounded-md bg-white hover:bg-gray-200 text-black disabled:cursor-not-allowed"
+          disabled={!hasPrev}
+        >
+          Previous
+        </button>
+
+        <button
+          onClick={() => handleChangePage("next")}
+          className="py-1 px-2 rounded-md bg-white text-black hover:bg-gray-200 disabled:cursor-not-allowed"
+          disabled={!hasNext}
+        >
+          Next
+        </button>
+      </div>
     </div>
   );
 };

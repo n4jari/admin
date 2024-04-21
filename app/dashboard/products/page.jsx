@@ -50,7 +50,9 @@ const Products = async ({ searchParams }) => {
                     {product.title}
                   </div>
                 </td>
-                <td className="min-w-56 pr-4 py-2">{product.desc.slice(0,20)} ..</td>
+                <td className="min-w-56 pr-4 py-2">
+                  {product.desc.slice(0, 20)} ..
+                </td>
                 <td className="min-w-40 pr-4 py-2">{product.price}</td>
                 <td className="min-w-40 pr-4 py-2">
                   {product.createdAt?.toString().slice(4, 16)}
@@ -77,7 +79,7 @@ const Products = async ({ searchParams }) => {
         </table>
       </div>
 
-      <Pagination count={count} />
+      <Pagination count={count}/>
     </div>
   );
 };
