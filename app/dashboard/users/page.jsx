@@ -5,6 +5,7 @@ import Search from "@/app/ui/dashboard/search/Search";
 import Image from "next/image";
 import Link from "next/link";
 import { deleteUser } from "@/lib/actions";
+import Loading from "@/app/ui/Loading";
 
 const Users = async ({ searchParams }) => {
   const q = searchParams.q || "";
@@ -14,7 +15,7 @@ const Users = async ({ searchParams }) => {
   return (
     <div className="p-4 bg-soft rounded-md max-sm:text-sm">
       <div className="flex items-center justify-between mb-4">
-        <Suspense>
+        <Suspense fallback={<Loading />}>
           <Search placeholder="Search for a user ..." />
         </Suspense>
         <Link href="/dashboard/users/add">

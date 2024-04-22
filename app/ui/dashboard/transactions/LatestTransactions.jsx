@@ -20,7 +20,7 @@ const LatestTransactions = async () => {
             {transactions
               .slice(transactions.length - 3, transactions.length)
               .map((transaction) => (
-                <tr>
+                <tr key={transaction.id}>
                   <td className="min-w-52 pr-4 py-2">
                     <div className="flex items-center gap-4">
                       <Image

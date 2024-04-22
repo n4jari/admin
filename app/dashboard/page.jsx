@@ -3,6 +3,8 @@ import Chart from "../ui/dashboard/chart/page";
 import LatesTransactions from "../ui/dashboard/transactions/LatestTransactions";
 import RightBar from "../ui/dashboard/rightbar/page";
 import Notices from "../ui/dashboard/notices/Notices";
+import { Suspense } from "react";
+import Loading from "../ui/Loading";
 
 const Dashboard = () => {
   return (
@@ -16,7 +18,9 @@ const Dashboard = () => {
           <Card />
           <Card />
         </div>
-        <LatesTransactions />
+        <Suspense fallback={<Loading height={300} />}>
+          <LatesTransactions />
+        </Suspense>
         <Chart />
       </div>
       <div className="max-lg:hidden w-1/4">
